@@ -1,0 +1,9 @@
+library("pacman")
+p_load(dplyr)
+
+transform <- function(df_1, ...) {
+    # Specify your transformation logic here
+    # Return value: transformed dataframe.
+    df_1 <- filter(df_1, Pclass < 3)
+    df_1
+}

@@ -1,0 +1,29 @@
+library("pacman")
+p_load(bigrquery)
+
+export_data <- function(df_1, ...) {
+    # Specify your data exporting logic here
+    # Return value: exported dataframe
+    bq_auth(path = "chromatic-tree-410802-6cdba993f06f.json")
+
+    project = "chromatic-tree-410802"
+    dataset = "schedule_test_r"
+    table   = "merged_data"
+    #billing = "chromatic-tree-410802"
+
+    table = bq_table(project = project, dataset = dataset, table = table)
+
+    if(bq_table_exists(table)){
+      # if table already exists, delete it
+      bq_table_delete(table)
+	
+	    # recreate table so that we can fill it out
+      bq_table_create(table, df_1)
+	
+	    # fill out table
+      bq_table_upload(table, df_1)
+    }else{
+      bq_table_create(table, df_1)
+      bq_table_upload(table, df_1)
+    }
+}

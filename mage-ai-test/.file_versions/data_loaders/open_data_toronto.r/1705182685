@@ -1,0 +1,35 @@
+
+
+# Packages ----
+library("pacman")
+p_load(dplyr)
+library(tidyverse)
+library(opendatatoronto)
+library(bigrquery)
+library(lubridate)
+library(janitor)
+library(here)
+library(DBI)
+
+
+# Working Dir ----
+setwd(here::here("R"))
+
+
+# Data Extraction ----
+info <- show_package("21c83b32-d5a8-4106-a54f-010dbe49f6f2") %>% 
+    list_package_resources() %>% 
+    filter(str_to_lower(format) %in% c("csv", "geojson")) %>% 
+    filter(! is.na(last_modified)) %>% 
+    arrange(desc(last_modified)) %>% 
+    mutate(last_modified_year = lubridate::year(last_modified)) %>% 
+    filter(last_modified_year == 2024) %>%
+    arrange(desc(last_modified)) %>% 
+    slice(1) 
+
+sample_data_tbl <- info %>% 
+    get_resource() %>% 
+    janitor::clean_names() %>%
+    filter(organization_id %in% c(24, 14)) %>% 
+    mutate(timestamp = lubridate::now())
+

@@ -1,0 +1,7 @@
+load_data <- function() {
+    # Specify your data loading logic here
+    # Return value: loaded dataframe
+    df <- read.csv(url('https://raw.githubusercontent.com/datasciencedojo/datasets/master/titanic.csv'))
+    df
+}
+

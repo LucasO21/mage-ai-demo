@@ -1,0 +1,6 @@
+library("pacman")
+pacman::p_load(dplyr)
+
+load_data <- function() {
+    df <- mtcars
+}

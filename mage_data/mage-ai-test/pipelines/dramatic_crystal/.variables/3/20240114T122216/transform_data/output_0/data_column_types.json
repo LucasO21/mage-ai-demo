@@ -1,0 +1,1 @@
+{"mpg": "float64", "cyl": "int64", "disp": "float64", "hp": "int64", "drat": "float64", "wt": "float64", "qsec": "float64", "vs": "int64", "am": "int64", "gear": "int64", "carb": "int64", "test": "str"}

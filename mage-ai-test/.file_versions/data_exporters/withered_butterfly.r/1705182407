@@ -1,0 +1,5 @@
+export_data <- function(df_1, ...) {
+    # Specify your data exporting logic here
+    # Return value: exported dataframe
+    write.csv(df_1, "titanic_filtered.csv", row.names = FALSE)
+}

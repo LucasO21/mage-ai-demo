@@ -1,0 +1,7 @@
+transform <- function(mtcars) {
+    # Specify your transformation logic here
+    # Return value: transformed dataframe.
+    mtcars %>% 
+        as_tibble() %>% 
+        mutate(test = "new_row")
+}

@@ -1,0 +1,8 @@
+library("pacman")
+p_load(bigrquery)
+
+export_data <- function(df_1, ...) {
+    # Specify your data exporting logic here
+    # Return value: exported dataframe
+    bq_auth(path = "mage-ai-test-chromatic-tree-410802-6cdba993f06f.json")
+}

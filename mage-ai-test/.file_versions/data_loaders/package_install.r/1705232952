@@ -1,0 +1,6 @@
+library("pacman")
+pacman::p_load(dplyr, opendatatoronto, janitor, lubridate, bigrquery)
+
+load_data <- function() {
+    
+}

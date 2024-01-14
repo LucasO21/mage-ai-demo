@@ -1,0 +1,9 @@
+library("pacman")
+pacman::p_load(tidyverse, opendatatoronto, bigrquery, lubridate, janitor, DBI)
+
+
+load_data <- function() {
+    # Specify your data loading logic here
+    # Return value: loaded dataframe
+    list.files()
+}
